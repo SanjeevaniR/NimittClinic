@@ -1,0 +1,290 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   Nimitt Clinic — design tokens
+   Palette: deep plum (authority, calm) + antique gold (warmth, premium care)
+   ========================================================================== */
+
+@theme {
+  /* --- Plum: primary brand --- */
+  --color-plum-50: #faf4fc;
+  --color-plum-100: #f3e6f7;
+  --color-plum-200: #e7cced;
+  --color-plum-300: #d3a6dd;
+  --color-plum-400: #b673c6;
+  --color-plum-500: #9748a8;
+  --color-plum-600: #7d3190;
+  --color-plum-700: #6b2a7b;
+  --color-plum-800: #58215f;
+  --color-plum-900: #43124c;
+  --color-plum-950: #2b0a31;
+
+  /* --- Gold: accent --- */
+  --color-gold-50: #fdf9ec;
+  --color-gold-100: #faf0cd;
+  --color-gold-200: #f4df99;
+  --color-gold-300: #ebc965;
+  --color-gold-400: #e0b544;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8912c;
+  --color-gold-700: #937024;
+  --color-gold-800: #715524;
+  --color-gold-900: #5c4522;
+
+  /* --- Neutrals --- */
+  --color-ink: #1c1720;
+  --color-ink-soft: #4a4351;
+  --color-cream: #fffdf8;
+  --color-mist: #f7f4f9;
+
+  /* --- Typography --- */
+  --font-display:
+    var(--font-outfit), 'Outfit', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans:
+    var(--font-inter), 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  --text-hero: clamp(2.25rem, 1.2rem + 4.2vw, 4.5rem);
+  --text-section: clamp(1.75rem, 1.1rem + 2.4vw, 2.75rem);
+
+  /* --- Radii --- */
+  --radius-card: 1.25rem;
+  --radius-pill: 999px;
+
+  /* --- Elevation --- */
+  --shadow-soft: 0 2px 8px -2px rgb(43 10 49 / 0.08), 0 12px 32px -12px rgb(43 10 49 / 0.14);
+  --shadow-lift: 0 4px 12px -4px rgb(43 10 49 / 0.12), 0 24px 48px -16px rgb(43 10 49 / 0.24);
+  --shadow-gold: 0 8px 28px -10px rgb(212 175 55 / 0.55);
+
+  /* --- Motion --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-shimmer: shimmer 3.2s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-blob: blob 18s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -32px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.94);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  * {
+    border-color: var(--color-plum-100);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a heading. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users only. */
+  :focus-visible {
+    outline: 3px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-plum-800);
+    color: var(--color-gold-200);
+  }
+
+  /* Respect the OS-level motion preference for everything. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Custom utilities
+   ========================================================================== */
+
+/** Brand gold text gradient — for numerals and accent words. */
+@utility text-gradient-gold {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-gold-600) 0%,
+    var(--color-gold-300) 45%,
+    var(--color-gold-500) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/** The plum → gold sweep used by the hero and the emergency banner. */
+@utility bg-brand-sweep {
+  background-image: linear-gradient(
+    112deg,
+    var(--color-plum-950) 0%,
+    var(--color-plum-900) 34%,
+    var(--color-plum-700) 62%,
+    var(--color-gold-600) 100%
+  );
+}
+
+@utility bg-gold-sweep {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-gold-700) 0%,
+    var(--color-gold-400) 42%,
+    var(--color-gold-300) 58%,
+    var(--color-gold-600) 100%
+  );
+}
+
+/** 1px gold hairline border that survives a rounded corner. */
+@utility ring-hairline-gold {
+  box-shadow: inset 0 0 0 1px rgb(212 175 55 / 0.35);
+}
+
+/** Frosted panel over the plum background. */
+@utility glass-plum {
+  background-color: rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(12px) saturate(150%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+}
+
+/** Fine dot grid, used behind hero and CTA blocks. */
+@utility bg-dot-grid {
+  background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Screen-reader-only, plus the skip link that reveals itself on focus. */
+@utility sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+
+  &:focus-visible {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.75rem 1.25rem;
+    overflow: visible;
+    clip-path: none;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-plum-900);
+    color: var(--color-cream);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+/* Slim, styled scrollbar on the marquee / horizontal scrollers. */
+@utility scrollbar-plum {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-plum-300) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-plum-300);
+    border-radius: 999px;
+  }
+}
