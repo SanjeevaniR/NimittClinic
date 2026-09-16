@@ -10,7 +10,6 @@ export const primaryNav: readonly NavItem[] = [
   { label: 'About Us', href: '/about' },
   { label: 'Doctors', href: '/doctors', matches: ['/doctors'] },
   { label: 'Services', href: '/services', matches: ['/services'] },
-  { label: 'Patient Care', href: '/patient-care' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 
@@ -18,7 +17,6 @@ export const footerNav = {
   findUs: [
     { label: 'About Us', href: '/about' },
     { label: 'Our Doctors', href: '/doctors' },
-    { label: 'Patient Care', href: '/patient-care' },
     { label: 'Contact Us', href: '/contact' },
   ],
   quickLinks: [
