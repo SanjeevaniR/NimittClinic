@@ -68,7 +68,7 @@ export function Logo({ tone = 'dark', className, asLink = true }: LogoProps) {
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            'font-display text-lg font-bold tracking-tight',
+            'font-display text-2xl font-bold tracking-tight',
             tone === 'light' ? 'text-cream' : 'text-plum-950',
           )}
         >

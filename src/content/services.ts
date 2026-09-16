@@ -56,33 +56,6 @@ export const services: readonly Service[] = [
     doctors: ['dr-sapna-chauhan'],
   },
   {
-    slug: 'internal-medicine',
-    title: 'Internal Medicine Consultation',
-    shortTitle: 'Internal Medicine',
-    icon: 'internal-medicine',
-    excerpt:
-      'Diabetes, blood pressure, thyroid, fever and long-standing symptoms — diagnosed carefully, treated with the minimum effective plan.',
-    description: [
-      'Internal medicine is where unexplained symptoms get sorted out. Dr. Manoj Kumar PK evaluates the whole picture rather than one organ at a time, which is exactly what is needed when fatigue, breathlessness, recurrent fever or weight change has no obvious cause.',
-      'Long-term conditions are managed for the long term. Diabetes, hypertension, thyroid and lipid disorders are reviewed on a fixed schedule with target values you can see, so that treatment is adjusted on evidence rather than guesswork.',
-      'Acute illness — fever, infections, gastrointestinal and respiratory problems — is assessed the same day wherever possible, with clear guidance on when a symptom needs escalation to hospital care.',
-    ],
-    includes: [
-      'Comprehensive adult medical consultation',
-      'Diabetes management, including insulin titration',
-      'Hypertension and cardiovascular risk assessment',
-      'Thyroid and metabolic disorder management',
-      'Fever and infectious disease evaluation',
-      'Asthma and COPD review',
-      'Anaemia and vitamin deficiency workup',
-      'Annual preventive health check and adult vaccination',
-      'Pre-operative medical fitness clearance',
-    ],
-    whoIsItFor:
-      'Adults with a chronic condition to manage, an acute illness to treat, or symptoms nobody has explained yet.',
-    doctors: ['dr-manoj-kumar-pk'],
-  },
-  {
     slug: 'gynaecological-surgery',
     title: 'Gynaecological & Laparoscopic Surgery',
     shortTitle: 'Gynaecological Surgery',
@@ -108,6 +81,33 @@ export const services: readonly Service[] = [
     whoIsItFor:
       'Women advised surgery for fibroids, ovarian cysts, endometriosis or abnormal bleeding — including those seeking a second opinion before consenting.',
     doctors: ['dr-sapna-chauhan', 'dr-manoj-kumar-pk'],
+  },
+  {
+    slug: 'internal-medicine',
+    title: 'Internal Medicine Consultation',
+    shortTitle: 'Internal Medicine',
+    icon: 'internal-medicine',
+    excerpt:
+      'Diabetes, blood pressure, thyroid, fever and long-standing symptoms — diagnosed carefully, treated with the minimum effective plan.',
+    description: [
+      'Internal medicine is where unexplained symptoms get sorted out. Dr. Manoj Kumar PK evaluates the whole picture rather than one organ at a time, which is exactly what is needed when fatigue, breathlessness, recurrent fever or weight change has no obvious cause.',
+      'Long-term conditions are managed for the long term. Diabetes, hypertension, thyroid and lipid disorders are reviewed on a fixed schedule with target values you can see, so that treatment is adjusted on evidence rather than guesswork.',
+      'Acute illness — fever, infections, gastrointestinal and respiratory problems — is assessed the same day wherever possible, with clear guidance on when a symptom needs escalation to hospital care.',
+    ],
+    includes: [
+      'Comprehensive adult medical consultation',
+      'Diabetes management, including insulin titration',
+      'Hypertension and cardiovascular risk assessment',
+      'Thyroid and metabolic disorder management',
+      'Fever and infectious disease evaluation',
+      'Asthma and COPD review',
+      'Anaemia and vitamin deficiency workup',
+      'Annual preventive health check and adult vaccination',
+      'Pre-operative medical fitness clearance',
+    ],
+    whoIsItFor:
+      'Adults with a chronic condition to manage, an acute illness to treat, or symptoms nobody has explained yet.',
+    doctors: ['dr-manoj-kumar-pk'],
   },
 ] as const;
 
